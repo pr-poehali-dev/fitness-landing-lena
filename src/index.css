@@ -161,6 +161,72 @@
     transform: translateY(-4px);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   }
+
+  /* Геометрический фон — тонкая сетка с диагональными линиями */
+  .bg-pattern {
+    position: relative;
+  }
+
+  .bg-pattern::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      /* Диагональные линии */
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 60px,
+        rgba(196, 160, 90, 0.03) 60px,
+        rgba(196, 160, 90, 0.03) 61px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(196, 160, 90, 0.025) 60px,
+        rgba(196, 160, 90, 0.025) 61px
+      ),
+      /* Тонкая квадратная сетка */
+        linear-gradient(rgba(196, 160, 90, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(196, 160, 90, 0.04) 1px, transparent 1px);
+    background-size:
+      120px 120px,
+      120px 120px,
+      40px 40px,
+      40px 40px;
+  }
+
+  .bg-pattern > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Вариант — только угловые ромбы / перекрестия для секций-акцентов */
+  .bg-pattern-alt {
+    position: relative;
+  }
+
+  .bg-pattern-alt::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(
+      circle,
+      rgba(196, 160, 90, 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+  }
+
+  .bg-pattern-alt > * {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 @keyframes fadeUp {

@@ -166,7 +166,7 @@ function About() {
   const [studioSlide, setStudioSlide] = useState(0);
 
   return (
-    <section id="about" className="bg-[#0e0b08]">
+    <section id="about" className="bg-[#0e0b08] bg-pattern">
       {/* Блок О тренере — фото + текст единый блок */}
       <div className="max-w-6xl mx-auto px-6 pt-20 pb-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -353,7 +353,7 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="py-16 bg-[#0d0a07]">
+    <section id="services" className="py-16 bg-[#0d0a07] bg-pattern-alt">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -457,7 +457,7 @@ function Schedule() {
   });
 
   return (
-    <section id="schedule" className="py-16 bg-[#0e0b08]">
+    <section id="schedule" className="py-16 bg-[#0e0b08] bg-pattern">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -578,7 +578,7 @@ function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="py-16 bg-[#0d0a07]">
+    <section id="pricing" className="py-16 bg-[#0d0a07] bg-pattern-alt">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -664,7 +664,7 @@ function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   return (
-    <section id="gallery" className="py-16 bg-[#0e0b08]">
+    <section id="gallery" className="py-16 bg-[#0e0b08] bg-pattern">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -779,7 +779,7 @@ function Reviews() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="reviews" className="py-16 bg-[#0d0a07]">
+    <section id="reviews" className="py-16 bg-[#0d0a07] bg-pattern-alt">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -862,7 +862,7 @@ function Contacts() {
   ];
 
   return (
-    <section id="contacts" className="py-16 bg-[#0e0b08]">
+    <section id="contacts" className="py-16 bg-[#0e0b08] bg-pattern">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
