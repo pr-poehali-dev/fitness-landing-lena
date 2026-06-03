@@ -148,6 +148,13 @@ function Hero() {
 }
 
 // --- About ---
+const STUDIO_PHOTOS = [
+  TRAINER_PHOTO,
+  TRAINER_PHOTO,
+  TRAINER_PHOTO,
+  TRAINER_PHOTO,
+];
+
 function About() {
   const achievements = [
     { icon: "Award", text: "Мастер спорта по художественной гимнастике" },
@@ -156,10 +163,14 @@ function About() {
     { icon: "Heart", text: "Специализация: реабилитация после травм" },
   ];
 
+  const [studioSlide, setStudioSlide] = useState(0);
+
   return (
-    <section id="about" className="py-28 bg-[#0e0b08]">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="bg-[#0e0b08]">
+      {/* Блок О тренере */}
+      <div className="max-w-6xl mx-auto px-6 pt-20 pb-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Фото */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden aspect-[3/4] max-w-md mx-auto">
               <img
@@ -179,13 +190,14 @@ function About() {
             <div className="absolute -right-8 top-8 w-16 h-16 border border-gold/10 rounded-full hidden lg:block" />
           </div>
 
+          {/* Текст */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-5">
               <span className="gold-line" />
               <span className="section-label">О тренере</span>
             </div>
 
-            <h2 className="font-cormorant font-light text-5xl md:text-6xl leading-tight mb-8">
+            <h2 className="font-cormorant font-light text-5xl md:text-6xl leading-tight mb-7">
               Движение как<br />
               <span className="text-gold italic">философия жизни</span>
             </h2>
@@ -193,11 +205,11 @@ function About() {
             <p className="font-golos font-light text-foreground/70 leading-relaxed mb-4">
               Меня зовут Лена, и я помогаю людям открыть возможности своего тела уже более 7 лет. Моя история начиналась с профессиональной гимнастики, а сегодня — это йога, стретчинг, фитнес и пилон.
             </p>
-            <p className="font-golos font-light text-foreground/70 leading-relaxed mb-10">
+            <p className="font-golos font-light text-foreground/70 leading-relaxed mb-8">
               Каждая программа создаётся индивидуально. Неважно, новичок вы или опытный спортсмен — найдём подход именно для вас.
             </p>
 
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-3">
               {achievements.map((a) => (
                 <div key={a.text} className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center flex-shrink-0">
@@ -205,6 +217,106 @@ function About() {
                   </div>
                   <span className="font-golos text-sm text-foreground/70">{a.text}</span>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Разделитель */}
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="border-t border-border/40" />
+      </div>
+
+      {/* Блок Студия "Продвижение" */}
+      <div id="studio" className="max-w-6xl mx-auto px-6 pt-12 pb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Текст студии */}
+          <div>
+            <div className="flex items-center gap-3 mb-5">
+              <span className="gold-line" />
+              <span className="section-label">Наша студия</span>
+            </div>
+
+            <h2 className="font-cormorant font-light text-5xl md:text-6xl leading-tight mb-7">
+              Студия<br />
+              <span className="text-gold italic">«Продвижение»</span>
+            </h2>
+
+            <p className="font-golos font-light text-foreground/70 leading-relaxed mb-6">
+              Собственная студия в самом сердце Москвы — уютное пространство, созданное для вашего развития. Зеркальные залы, профессиональные пилоны, мягкое освещение и атмосфера, которая вдохновляет двигаться.
+            </p>
+
+            <div className="space-y-4 mb-8">
+              {[
+                { icon: "MapPin", label: "Адрес", value: "ул. Малая Бронная, 15, Москва" },
+                { icon: "Train", label: "Метро", value: "Маяковская / Тверская (5 мин пешком)" },
+                { icon: "Clock", label: "Режим работы", value: "Пн–Пт: 8:00–22:00 · Сб–Вс: 10:00–20:00" },
+                { icon: "Phone", label: "Телефон", value: "+7 (999) 123-45-67" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-start gap-4">
+                  <div className="w-9 h-9 rounded-lg border border-gold/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon name={item.icon} fallback="MapPin" size={15} className="text-gold" />
+                  </div>
+                  <div>
+                    <div className="font-golos text-xs text-foreground/40 uppercase tracking-wider">{item.label}</div>
+                    <div className="font-golos text-sm text-foreground/80 mt-0.5">{item.value}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="#contacts"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-gold/30 text-gold font-golos text-xs tracking-widest uppercase rounded-full hover:bg-gold/10 transition-all duration-300"
+            >
+              Записаться в студию
+              <Icon name="ArrowRight" size={14} className="text-gold" />
+            </a>
+          </div>
+
+          {/* Карусель фото студии */}
+          <div>
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-3">
+              <img
+                src={STUDIO_PHOTOS[studioSlide]}
+                alt={`Студия Продвижение ${studioSlide + 1}`}
+                className="w-full h-full object-cover object-top transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0e0b08]/40 to-transparent" />
+
+              {/* Arrows */}
+              <button
+                onClick={() => setStudioSlide((p) => (p - 1 + STUDIO_PHOTOS.length) % STUDIO_PHOTOS.length)}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center hover:bg-black/70 transition-colors"
+              >
+                <Icon name="ChevronLeft" size={18} className="text-white" />
+              </button>
+              <button
+                onClick={() => setStudioSlide((p) => (p + 1) % STUDIO_PHOTOS.length)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center hover:bg-black/70 transition-colors"
+              >
+                <Icon name="ChevronRight" size={18} className="text-white" />
+              </button>
+
+              {/* Counter */}
+              <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/50 backdrop-blur-sm rounded-full font-golos text-xs text-white/80">
+                {studioSlide + 1} / {STUDIO_PHOTOS.length}
+              </div>
+            </div>
+
+            {/* Thumbnails */}
+            <div className="grid grid-cols-4 gap-2">
+              {STUDIO_PHOTOS.map((photo, i) => (
+                <button
+                  key={i}
+                  onClick={() => setStudioSlide(i)}
+                  className={`rounded-xl overflow-hidden aspect-square border-2 transition-all duration-300 ${
+                    i === studioSlide ? "border-gold" : "border-transparent opacity-50 hover:opacity-75"
+                  }`}
+                >
+                  <img src={photo} alt="" className="w-full h-full object-cover object-top" />
+                </button>
               ))}
             </div>
           </div>
@@ -244,7 +356,7 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="py-28 bg-[#0d0a07]">
+    <section id="services" className="py-16 bg-[#0d0a07]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -348,7 +460,7 @@ function Schedule() {
   });
 
   return (
-    <section id="schedule" className="py-28 bg-[#0e0b08]">
+    <section id="schedule" className="py-16 bg-[#0e0b08]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -469,7 +581,7 @@ function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="py-28 bg-[#0d0a07]">
+    <section id="pricing" className="py-16 bg-[#0d0a07]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -555,7 +667,7 @@ function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   return (
-    <section id="gallery" className="py-28 bg-[#0e0b08]">
+    <section id="gallery" className="py-16 bg-[#0e0b08]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -670,7 +782,7 @@ function Reviews() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="reviews" className="py-28 bg-[#0d0a07]">
+    <section id="reviews" className="py-16 bg-[#0d0a07]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -753,7 +865,7 @@ function Contacts() {
   ];
 
   return (
-    <section id="contacts" className="py-28 bg-[#0e0b08]">
+    <section id="contacts" className="py-16 bg-[#0e0b08]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
