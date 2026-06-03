@@ -167,10 +167,10 @@ function About() {
 
   return (
     <section id="about" className="bg-[#0e0b08]">
-      {/* Блок О тренере */}
+      {/* Блок О тренере — фото + текст единый блок */}
       <div className="max-w-6xl mx-auto px-6 pt-20 pb-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Фото */}
+          {/* Фото — чистое, без подписи */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden aspect-[3/4] max-w-md mx-auto">
               <img
@@ -178,32 +178,29 @@ function About() {
                 alt="Тренер Лена"
                 className="w-full h-full object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0e0b08] via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-[#0e0b08]/80 backdrop-blur-sm rounded-xl p-4 border border-border">
-                  <div className="font-cormorant text-2xl font-light">Лена Соколова</div>
-                  <div className="font-golos text-xs text-foreground/50 tracking-wider uppercase mt-1">Персональный тренер</div>
-                </div>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0e0b08]/30 via-transparent to-transparent" />
             </div>
             <div className="absolute -right-4 top-12 w-24 h-24 border border-gold/20 rounded-full hidden lg:block" />
             <div className="absolute -right-8 top-8 w-16 h-16 border border-gold/10 rounded-full hidden lg:block" />
           </div>
 
-          {/* Текст */}
+          {/* Текст — имя интегрировано сверху */}
           <div>
             <div className="flex items-center gap-3 mb-5">
               <span className="gold-line" />
               <span className="section-label">О тренере</span>
             </div>
 
-            <h2 className="font-cormorant font-light text-5xl md:text-6xl leading-tight mb-7">
-              Движение как<br />
-              <span className="text-gold italic">философия жизни</span>
+            {/* Имя и должность как часть текстового блока */}
+            <h2 className="font-cormorant font-light text-5xl md:text-6xl leading-tight mb-2">
+              Лена Соколова
             </h2>
+            <p className="font-golos text-xs text-gold/80 tracking-widest uppercase mb-7">
+              Персональный тренер · 7+ лет опыта
+            </p>
 
             <p className="font-golos font-light text-foreground/70 leading-relaxed mb-4">
-              Меня зовут Лена, и я помогаю людям открыть возможности своего тела уже более 7 лет. Моя история начиналась с профессиональной гимнастики, а сегодня — это йога, стретчинг, фитнес и пилон.
+              Помогаю людям открыть возможности своего тела. Моя история начиналась с профессиональной гимнастики, а сегодня — это йога, стретчинг, фитнес и пилон.
             </p>
             <p className="font-golos font-light text-foreground/70 leading-relaxed mb-8">
               Каждая программа создаётся индивидуально. Неважно, новичок вы или опытный спортсмен — найдём подход именно для вас.
@@ -230,7 +227,7 @@ function About() {
 
       {/* Блок Студия "Продвижение" */}
       <div id="studio" className="max-w-6xl mx-auto px-6 pt-12 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Текст студии */}
           <div>
             <div className="flex items-center gap-3 mb-5">
